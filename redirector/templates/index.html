@@ -1,0 +1,31 @@
+<html>
+<head>
+
+{% if redirection.enabled %}
+<meta http-equiv="refresh" content="0;URL='{{redirection.get_url}}'" /> 
+{% endif %}
+
+</head>
+<body>
+<h1>Project302's Redirector</h1>
+
+{% if rediction %}
+
+{% if redirection.enabled %}
+You will be rediected to <a href='{{redirection.get_url}}' />{{redirection.get_url}}</a> shortly...
+{% else %}
+You would have been redirected to <a href='{{redirection.get_url}}' />{{redirection.get_url}}</a>.<Br />
+However this redirection has been disabled.
+{% endif %}
+
+{% endif %}
+
+{% if miss %}
+Miss: <strong>{{miss.source_name}}</strong> is not currently getting redirected to anywhere.<Br />
+<Br />
+This was the <strong>{{miss.count}}</strong> time that someone expected a redirection.<Br />
+<Br />
+<a href='/admin/redirector/redirection/add/'>Add the expected destination</a>
+{% endif %}
+</body>
+</html>
